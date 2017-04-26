@@ -97,7 +97,7 @@ public class poblamientoDatos {
                         for(int k = 0;k<5;k++){
                             asistencia[h][k] = Math.random() < 0.5 ? true : false;
                         }
-                    }
+                    } 
                     asist.setAsistencia(asistencia);
                     temp3.getAsistencia().add(asist);
                 }
