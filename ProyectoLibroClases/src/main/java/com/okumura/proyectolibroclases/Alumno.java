@@ -20,8 +20,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Alumno extends Persona implements Comparable{
     
     private String anotaciones = "";
-    private Double [][] notas = new Double[5][5];
-    private List<Boolean> asistencia = null;
+    private List<Asistencia> asistencia = null;
+    private List<Notas> notas = null;
     private String apoderado;
     
     public Alumno(){}
@@ -30,21 +30,23 @@ public class Alumno extends Persona implements Comparable{
         super(nombre);
         this.apoderado = apoderado;
     }
-    public Double[][] getNotas() {
+    public List<Notas> getNotas() {
         return notas;
     }
 
-    public void setNotas(Double[][] notas) {
+    public void setNotas(List<Notas> notas) {
         this.notas = notas;
     }
-    
-    public List<Boolean> getAsistencia() {
+
+    public List<Asistencia> getAsistencia() {
         return asistencia;
     }
 
-    public void setAsistencia(List<Boolean> asistencia) {
+    public void setAsistencia(List<Asistencia> asistencia) {
         this.asistencia = asistencia;
-    }    
+    }
+    
+
     public String getAnotaciones() {
         return anotaciones;
     }

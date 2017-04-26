@@ -5,6 +5,7 @@
  */
 package Windows;
 
+import com.okumura.proyectolibroclases.Notas;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,16 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class ingresoNotas extends javax.swing.JFrame {
     
-    private Double [][] notas;
-    private int index;
+    private Notas notas;
     private String ramo;
     /**
      * Creates new form ingresoNotas
      */
-    public ingresoNotas(Double[][] temp,int index,String ramo) {
+    public ingresoNotas(Notas temp,String ramo) {
         initComponents();
         this.notas = temp;
-        this.index = index;
         this.ramo = ramo;
         showData();
     }
@@ -116,28 +115,28 @@ public class ingresoNotas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void showData(){
-        jTextField1.setText(notas[index][0].toString());
-        jTextField2.setText(notas[index][1].toString());
-        jTextField3.setText(notas[index][2].toString());
-        jTextField4.setText(notas[index][3].toString());
-        jTextField5.setText(notas[index][4].toString());
+        jTextField1.setText(notas.getNotas()[0].toString());
+        jTextField2.setText(notas.getNotas()[1].toString());
+        jTextField3.setText(notas.getNotas()[2].toString());
+        jTextField4.setText(notas.getNotas()[3].toString());
+        jTextField5.setText(notas.getNotas()[4].toString());
         jLabel1.setText(ramo);
     }
     public void saveData(){
-        notas[index][0]=Double.parseDouble(jTextField1.getText());
-        notas[index][1]=Double.parseDouble(jTextField2.getText());
-        notas[index][2]=Double.parseDouble(jTextField3.getText());
-        notas[index][3]=Double.parseDouble(jTextField4.getText());
-        notas[index][4]=Double.parseDouble(jTextField5.getText());
+        notas.getNotas()[0]=Double.parseDouble(jTextField1.getText());
+        notas.getNotas()[1]=Double.parseDouble(jTextField2.getText());
+        notas.getNotas()[2]=Double.parseDouble(jTextField3.getText());
+        notas.getNotas()[3]=Double.parseDouble(jTextField4.getText());
+        notas.getNotas()[4]=Double.parseDouble(jTextField5.getText());
         close();
     }
     public boolean checkNum(){
-        for(int i = 0; i<notas.length;i++){
-            if(notas[index][i]<1.0 || notas[index][i]>7.0){
+        for(int i = 0; i<notas.getNotas().length ;i++){
+            if(notas.getNotas()[i]<1.0 || notas.getNotas()[i]>7.0){
                 JOptionPane.showMessageDialog(null, "Ingrese notas validas entre 1.0 y 7.0");
                 return false;
             }
-            System.out.println(notas[index][i]);
+            System.out.println(notas.getNotas()[i]);
         }
         return true;
     }

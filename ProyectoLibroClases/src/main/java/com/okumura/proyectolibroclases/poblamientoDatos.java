@@ -35,17 +35,13 @@ public class poblamientoDatos {
         String [] nombresH = readData("listaH.txt",50);
         String [] apellidos = readData("apellidos.txt",100);
         System.out.println(nombresM.length+" "+nombresH.length+" "+apellidos.length);
-        int cont = 0;
+        
         int curso = 1;
         int letra = 0;
         String letraCurso = "A";
         Curso temp = null;
-        Double [][] notas = new Double [5][5];
-        for(int i = 0; i<5;i++){
-            for(int j = 0;j<5;j++){
-                notas[i][j] = 1.0;
-            }
-        }
+        Double [] notas = new Double [5];
+        boolean [][] asistencia = new boolean[4][5];
         
         for(int i = 0; i<16;i++){
             if(letra == 0){
@@ -70,17 +66,44 @@ public class poblamientoDatos {
             String nombreAp;
             for(int j = 0; j<30;j++){
                 if(rnd.nextInt(sex)==0){
-                    nombre = nombresH[(int) Math.floor(Math.random() * 50)] +" "+ apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)];
+                    nombre = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresH[(int) Math.floor(Math.random() * 50)];
                 }else{
-                    nombre = nombresM[(int) Math.floor(Math.random() * 50)] +" "+ apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)];
+                    nombre = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresM[(int) Math.floor(Math.random() * 50)];
                 }
                 if(rnd.nextInt(sex)==0){
-                    nombreAp = nombresH[(int) Math.floor(Math.random() * 50)] +" "+ apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)];
+                    nombreAp = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresH[(int) Math.floor(Math.random() * 50)];
                 }else{
-                    nombreAp = nombresM[(int) Math.floor(Math.random() * 50)] +" "+ apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)];
+                    nombreAp = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresM[(int) Math.floor(Math.random() * 50)];
                 } 
                 Alumno temp3 = new Alumno(nombreAp, nombre);
-                temp3.setNotas(notas);
+                temp3.setNotas(new ArrayList<Notas>());
+                String [] asig = {"Lenguaje","Matematicas","Historia","Ingles","Educacion Fisica"};
+                Notas not = null;
+                for(int h = 0; h<5;h++){
+                    not = new Notas(asig[h]);
+                    for(int k = 0;k<5;k++){
+                        notas[k] = 1.0 + (Double) Math.floor(Math.random() * 6);
+                    }
+                    not.setNotas(notas);
+                    temp3.getNotas().add(not);
+                }
+                
+                temp3.setAsistencia(new ArrayList<Asistencia>());
+                String [] mes = {"Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+                Asistencia asist = null;
+                for(int g=0;g<10;g++){
+                    asist = new Asistencia(mes[g]);
+                    for(int h = 0; h<4;h++){
+                        for(int k = 0;k<5;k++){
+                            asistencia[h][k] = Math.random() < 0.5 ? true : false;
+                        }
+                    }
+                    asist.setAsistencia(asistencia);
+                    temp3.getAsistencia().add(asist);
+                }
+                
+               
+                
                 temp.getlistaAlumnos().add(temp3);
                 	   
             }
