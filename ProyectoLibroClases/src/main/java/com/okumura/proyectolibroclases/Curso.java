@@ -28,6 +28,9 @@ public class Curso {
     @XmlElement(name = "Alumno")
     private List<Alumno> listaAlumnos = null;
     
+    /**
+     *Constructor sin Parametros.
+     */
     public Curso() {
     }
     /**
@@ -40,34 +43,66 @@ public class Curso {
         this.letraCurso = letraCurso;
     }
 
+    /**
+     * Getter del ArrayList de Profesor
+     * @return ArrayList of Profesor
+     */
     public List<Profesor> getProfesor() {
         return profesor;
     }
 
+    /**
+     * Setter del ArrayList de Profesor
+     * @param profesor ArrayList of Profesor
+     */
     public void setProfesor(List<Profesor> profesor) {
         this.profesor = profesor;
     }
     
+    /**
+     * Getter del Array de Alumnos
+     * @return ArrayList of Alumnos
+     */
     public List<Alumno> getlistaAlumnos() {
         return listaAlumnos;
     }
 
+    /**
+     * Setter del Arraylist de Alumnos
+     * @param listaAlumnos ArrayList of Alumnos
+     */
     public void setlistaAlumnos(List<Alumno> listaAlumnos) {
         this.listaAlumnos = listaAlumnos;
     }
 
+    /**
+     * Getter del Elemento numeroCurso
+     * @return Int de Curso
+     */
     public int getNumeroCurso() {
         return numeroCurso;
     }
 
+    /**
+     * Setter del elemento Curso
+     * @param numeroCurso Integer de curso
+     */
     public void setNumeroCurso(int numeroCurso) {
         this.numeroCurso = numeroCurso;
     }
 
+    /**
+     * Getter de la Letra del Curso
+     * @return String Letra Curso
+     */
     public String getLetraCurso() {
         return letraCurso;
     }
 
+    /**
+     * Setter de la Letra del Curso
+     * @param letraCurso String Letra Curso
+     */
     public void setLetraCurso(String letraCurso) {
         this.letraCurso = letraCurso;
     }    

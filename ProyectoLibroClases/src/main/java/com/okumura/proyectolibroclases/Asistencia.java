@@ -15,6 +15,9 @@ public class Asistencia {
     private String mes;
     private boolean[][] asistencia = new boolean[4][5];
 
+    /**
+     * Contructos sin Parametros.
+     */
     public Asistencia() {
     }
 
@@ -26,22 +29,44 @@ public class Asistencia {
         this.mes = mes;
     }
 
+    /**
+     * Getter del elemento Mes
+    * @return String
+    */
     public String getMes() {
         return mes;
     }
 
+    /**
+     *Setter del elemento mes
+     * @param mes String
+     */
     public void setMes(String mes) {
         this.mes = mes;
     }
 
+    /**
+     * Getter del Array Asistencia
+     * @return
+     */
     public boolean[][] getAsistencia() {
         return asistencia;
     }
 
+    /**
+     * Setter del Array Asistencia
+     * @param asistencia Array de boolean
+     */
     public void setAsistencia(boolean[][] asistencia) {
         this.asistencia = asistencia;
     }
     
+    /**
+     * Setter de una celda de Asistencia
+     * @param a valor boolean
+     * @param x valor en x
+     * @param y valor en y
+     */
     public void setCell(boolean a, int x, int y){
         this.asistencia[x][y] = a;
     }

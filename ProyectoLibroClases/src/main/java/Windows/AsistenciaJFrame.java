@@ -437,7 +437,9 @@ public class AsistenciaJFrame extends javax.swing.JFrame {
         showData();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    
+    /**
+     * Metodo que Asigna valores a cada elemento de la ventana.
+     */
     public void showData(){
         jCheckBox1.setSelected(asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][0]);
         jCheckBox2.setSelected(asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][1]);

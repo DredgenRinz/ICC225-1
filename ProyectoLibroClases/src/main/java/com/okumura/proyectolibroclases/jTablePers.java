@@ -12,11 +12,18 @@ package com.okumura.proyectolibroclases;
 import javax.swing.*;
 import javax.swing.table.*;
 
+/**
+ *
+ * @author Okumura
+ */
 public class jTablePers extends JTable {
 
     private static final long serialVersionUID = 1L;
     private JTable table;
 
+    /**
+     * Personalized jTable
+     */
     public jTablePers() {
 
         Object[] columnNames = null;
@@ -43,7 +50,7 @@ public class jTablePers extends JTable {
                     case 3:
                         return Double.class;
                     default:
-                        return Boolean.class;
+                        return Double.class;
                 }
             }
         };

@@ -16,6 +16,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 public class Profesor extends Persona{
     private String Asignatura;
     
+    /**
+     * Constructor sin Parametros.
+     */
     public Profesor(){}
     
     /**
@@ -28,10 +31,18 @@ public class Profesor extends Persona{
         this.Asignatura = Asignatura;
     }
 
+    /**
+     * Getter del elemento de Asignatura
+     * @return String Asignatura
+     */
     public String getAsignatura() {
         return Asignatura;
     }
 
+    /**
+     * Setter del elemento Asignatura
+     * @param Asignatura String Asignatura
+     */
     public void setAsignatura(String Asignatura) {
         this.Asignatura = Asignatura;
     }

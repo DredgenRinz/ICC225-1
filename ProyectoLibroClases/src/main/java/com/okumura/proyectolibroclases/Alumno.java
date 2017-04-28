@@ -24,6 +24,9 @@ public class Alumno extends Persona implements Comparable{
     private List<Notas> notas = null;
     private String apoderado;
     
+    /**
+     * Constructor sin Parametros.
+     */
     public Alumno(){}
     
     /**
@@ -36,35 +39,66 @@ public class Alumno extends Persona implements Comparable{
         this.apoderado = apoderado;
     }
     
+    /**
+     *Getter del Array Notas.
+     * @return Lista de Notas.
+     */
     public List<Notas> getNotas() {
         return notas;
     }
 
+    /**
+     * Setter del Array Notas.
+     * @param notas Array de Notas
+     */
     public void setNotas(List<Notas> notas) {
         this.notas = notas;
     }
 
+    /**
+     * Getter del ArrayList de Asistencia
+     * @return Asistencia
+     */
     public List<Asistencia> getAsistencia() {
         return asistencia;
     }
 
+    /**
+     * Setter de Asistencia
+     * @param asistencia Lista Asistencia
+     */
     public void setAsistencia(List<Asistencia> asistencia) {
         this.asistencia = asistencia;
     }
     
-
+    /**
+     * Getter del elemento Anotaciones
+     * @return anotaciones
+     */
     public String getAnotaciones() {
         return anotaciones;
     }
 
+    /**
+     * Setter  del elemento anotaciones
+     * @param anotaciones String
+     */
     public void setAnotaciones(String anotaciones) {
         this.anotaciones = anotaciones;
     }
 
+    /**
+     * Getter del elemento Apoderado
+     * @return String 
+     */
     public String getApoderado() {
         return apoderado;
     }
 
+    /**
+     * Setter del elemento Apoderado
+     * @param apoderado String
+     */
     public void setApoderado(String apoderado) {
         this.apoderado = apoderado;
     }

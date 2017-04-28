@@ -234,8 +234,8 @@ public class AsistenciaJFrameB extends JFrame {
         model = new DefaultTableModel(Alumnos, columnNames);
         jTable1.setModel(model);
     }
-    /*
-    *Metodo que Activa y rellena los ComboBox con sus respectivos datos
+    /**
+    * Metodo que Activa y rellena los ComboBox con sus respectivos datos.
     */
     public void activateComboBox() {
 

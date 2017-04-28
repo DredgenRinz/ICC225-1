@@ -29,6 +29,11 @@ import javax.xml.bind.Unmarshaller;
  */
 public class poblamientoDatos {
 
+    /**
+     * Main de la Clase Poblamiento De Datos XML
+     * @param args
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
         Colegio colegio = new Colegio();
         colegio.setCursos(new ArrayList<Curso>());
@@ -152,6 +157,12 @@ public class poblamientoDatos {
 
     }
 
+    /**
+     * Metodo que lee los datos dentro de un txt
+     * @param file nombre del archivo
+     * @param n cantidad de datos a leer
+     * @return Vector de String
+     */
     public static String[] readData(String file, int n) {
         File fichero = new File(file);
         Scanner s = null;

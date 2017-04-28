@@ -24,13 +24,26 @@ public class Persona {
     public Persona(String nombre) {
         this.nombre = nombre;
     }
+
+    /**
+     * Constructor sin Parametros
+     */
     public Persona(){
         
     }
+
+    /**
+     * Getter del elemento nombre
+     * @return String nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Setter del elemento nombre
+     * @param nombre String nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

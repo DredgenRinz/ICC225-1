@@ -22,6 +22,10 @@ import javax.xml.bind.Unmarshaller;
  */
 public class Xml {
     
+    /**
+    * Metodo que obtiene los Datos dentro de un XML y los convierte en la Clase Colegio.
+     * @return xml objecto de clase Colegio 
+    */
     public Colegio getXmlData(){
         Colegio xml = null;
         try{
