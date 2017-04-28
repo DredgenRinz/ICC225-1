@@ -14,6 +14,8 @@ import javax.swing.*;
 import javax.swing.table.*;
 
 /**
+ * Ventana que permite la Modificacion de las Variables Asistencia de todos los
+ * Alumnos dentro del Curso.
  *
  * @author Okumura
  */
@@ -31,36 +33,15 @@ public class AsistenciaJFrameB extends JFrame {
     /**
      * Creates new form AsistenciaJFrameB
      *
-     * @param curso
+     * @param curso New editable Curso for Asistencia
      */
     public AsistenciaJFrameB(Curso curso) {
         this.curso = curso;
         getAsistencia();
         initComponents();
-
-        for (Object o : curso.getlistaAlumnos().get(0).getAsistencia()) {
-            jComboBox1.addItem(((Asistencia) o).getMes());
-        }
-        for (String o : sem) {
-            jComboBox2.addItem(o);
-        }
-        jComboBox1.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent arg0) {
-
-                showData();
-
-            }
-        });
-
-        jComboBox2.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent arg0) {
-
-                showData();
-
-            }
-        });
+        activateComboBox();
+        
+        //Se agrega el Listener Para guardar cada cambio que se realize en la tabla
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -178,15 +159,11 @@ public class AsistenciaJFrameB extends JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
         showData();
-
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-
         showData();
-
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -198,6 +175,10 @@ public class AsistenciaJFrameB extends JFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metodo que carga los valores iniciales de Asistencia en un Array para el
+     * Model que se asignara a la JTable
+     */
     private void getAsistencia() {
 
         Alumnos = new Object[curso.getlistaAlumnos().size()][6];
@@ -212,21 +193,28 @@ public class AsistenciaJFrameB extends JFrame {
         }
     }
 
+    /**
+     **Metodo que guarda todos los cambios realizados en la tabla (JTable)
+     */
     public void saveData() {
-        int mes = jComboBox1.getSelectedIndex() ;
+        int mes = jComboBox1.getSelectedIndex();
         int semana = jComboBox2.getSelectedIndex();
         for (int i = 0; i < curso.getlistaAlumnos().size(); i++) {
 
-            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 1),semana,0);
-            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 2),semana,1);
-            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 3),semana,2);
-            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 4),semana,3);
-            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 5),semana,4);
+            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 1), semana, 0);
+            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 2), semana, 1);
+            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 3), semana, 2);
+            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 4), semana, 3);
+            curso.getlistaAlumnos().get(i).getAsistencia().get(mes).setCell((boolean) jTable1.getValueAt(i, 5), semana, 4);
 
         }
 
     }
-
+    
+    /**
+     * Metodo que actualiza los datos de la tabla(JTable) al realizar un cambio
+     * en los ComboBox
+     */
     public void showData() {
         int mes = jComboBox1.getSelectedIndex();
         int semana = jComboBox2.getSelectedIndex();
@@ -245,5 +233,34 @@ public class AsistenciaJFrameB extends JFrame {
         }
         model = new DefaultTableModel(Alumnos, columnNames);
         jTable1.setModel(model);
+    }
+    /*
+    *Metodo que Activa y rellena los ComboBox con sus respectivos datos
+    */
+    public void activateComboBox() {
+
+        for (Object o : curso.getlistaAlumnos().get(0).getAsistencia()) {
+            jComboBox1.addItem(((Asistencia) o).getMes());
+        }
+        for (String o : sem) {
+            jComboBox2.addItem(o);
+        }
+        jComboBox1.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent arg0) {
+
+                showData();
+
+            }
+        });
+
+        jComboBox2.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent arg0) {
+
+                showData();
+
+            }
+        });
     }
 }

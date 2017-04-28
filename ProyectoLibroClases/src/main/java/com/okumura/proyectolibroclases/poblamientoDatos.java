@@ -24,7 +24,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 /**
- *
+ * Poblamiento de datos (Experimental)
  * @author Okumura
  */
 public class poblamientoDatos {
@@ -40,7 +40,7 @@ public class poblamientoDatos {
         int letra = 0;
         String letraCurso = "A";
         Curso temp = null;
-        Double[] notas = new Double[5];
+        Double notas = null;
         boolean[][] asistencia = new boolean[4][5];
         Planificacion plan = null;
         String[] asig = {"Lenguaje", "Matematicas", "Historia", "Ingles", "Educacion Fisica"};
@@ -101,9 +101,10 @@ public class poblamientoDatos {
                 for (int h = 0; h < 5; h++) {
                     not = new Notas(asig[h]);
                     for (int k = 0; k < 5; k++) {
-                        notas[k] = 1.0 + (Double) Math.floor(Math.random() * 6);
+                        notas = 1.0 + (Double) Math.floor(Math.random() * 6);
+                        not.addNota(notas);
                     }
-                    not.setNotas(notas);
+                    
                     temp3.getNotas().add(not);
                 }
 

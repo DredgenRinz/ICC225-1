@@ -5,6 +5,9 @@
  */
 package com.okumura.proyectolibroclases;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *Clase que hace referencia a las notas de un Alumno con un Vector de 5 elementos
  * @author Okumura
@@ -12,7 +15,7 @@ package com.okumura.proyectolibroclases;
 public class Notas {
     
     private String Asignatura;
-    private Double[] notas = new Double[5];
+    private List<Double> notas;
 
     public Notas(){}
     /**
@@ -21,6 +24,7 @@ public class Notas {
      */
     public Notas(String Asignatura) {
         this.Asignatura = Asignatura;
+        notas = new ArrayList<>();
     }
 
     public String getAsignatura() {
@@ -31,12 +35,15 @@ public class Notas {
         this.Asignatura = Asignatura;
     }
 
-    public Double[] getNotas() {
+    public List<Double> getNotas() {
         return notas;
     }
 
-    public void setNotas(Double[] notas) {
+    public void setNotas(List<Double> notas) {
         this.notas = notas;
+    }
+    public void addNota(Double nota){
+        this.notas.add(nota);
     }
     
 }

@@ -18,7 +18,7 @@ public class AnotacionesJFrame extends javax.swing.JFrame {
     private Alumno anotaciones = null;
     /**
      * Creates new form Anotaciones, and receive a Alumno Object
-     * @param anot Alumno al cual se agregara o revisara las anotaciones.
+     * @param anot Alumno al cual se agregara las anotaciones.
      */
     public AnotacionesJFrame(Alumno anot) {
         initComponents();

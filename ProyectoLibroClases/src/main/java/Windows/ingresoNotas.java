@@ -30,7 +30,7 @@ public class ingresoNotas extends javax.swing.JFrame {
         this.notas = temp;
         this.ramo = ramo;
         this.profe = profe;
-        showData();
+        //showData();
     }
 
     /**
@@ -133,12 +133,13 @@ public class ingresoNotas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        saveData();
+        //saveData();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * Actualiza la informacion de la ventana
      */
+    /*
     public void showData(){
         jTextField1.setText(notas.getNotas()[0].toString());
         jTextField2.setText(notas.getNotas()[1].toString());
@@ -148,10 +149,10 @@ public class ingresoNotas extends javax.swing.JFrame {
         jLabel1.setText(ramo);
         jLabel4.setText(profe.getNombre());
     }
-    
+    */
     /**
      * Guarda los cambios hechos en la ventana
-     */
+     
     public void saveData(){
         notas.getNotas()[0]=Double.parseDouble(jTextField1.getText());
         notas.getNotas()[1]=Double.parseDouble(jTextField2.getText());
@@ -160,11 +161,13 @@ public class ingresoNotas extends javax.swing.JFrame {
         notas.getNotas()[4]=Double.parseDouble(jTextField5.getText());
         close();
     }
+    * 
+    */
     
     /**
      * Metodo que evalua si las notas ingresadas son validas
      * @return  false si estan mal, true si no hay problema
-     */
+     
     public boolean checkNum(){
         for(int i = 0; i<notas.getNotas().length ;i++){
             if(notas.getNotas()[i]<1.0 || notas.getNotas()[i]>7.0){
@@ -174,14 +177,17 @@ public class ingresoNotas extends javax.swing.JFrame {
         }
         return true;
     }
+    */
     /**
      * Metodo que termina la ejecucion de la ventana
-     */
+     
     public void close(){
         if(checkNum()){
             this.dispose();
         }
     }
+    * 
+    */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

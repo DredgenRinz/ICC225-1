@@ -321,7 +321,7 @@ public class PlanificacionJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Se genera un InputDialog para cambiar la Planificacion 
+     * Se genera un InputDialog para cambiar la Planificacion .
      * @param ind indica la ubicacion a reemplazar
      */
     private void readObjective(int ind){
@@ -330,7 +330,7 @@ public class PlanificacionJFrame extends javax.swing.JFrame {
     }
     
     /**
-     * Actualiza los datos de la ventana
+     * Actualiza los datos de la ventana.
      */
     private void fillData() {
         jTextArea1.setText(plan.get(index).getObjetivo());

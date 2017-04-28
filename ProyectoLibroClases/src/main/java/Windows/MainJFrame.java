@@ -512,7 +512,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo que Cambia de la ventana Principal a la de Curso
+     * Metodo que Cambia de la ventana Principal a la de Curso.
      * @param num
      * @param id 
      */
@@ -527,7 +527,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Clase que guarda los datos usados en un XML y posterior en un JSON
+     * Clase que guarda los datos usados en un XML y posterior en un JSON.
      */
     public void saveQuit() {
         getData.setXmlData(yolo);

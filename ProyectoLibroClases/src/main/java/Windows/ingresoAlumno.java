@@ -16,7 +16,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Clase que ingresa un Alumno Nuevo al Array del Curso Actual.
  * @author Okumura
  */
 public class ingresoAlumno extends javax.swing.JFrame {
@@ -33,7 +33,9 @@ public class ingresoAlumno extends javax.swing.JFrame {
     private DefaultListModel model;
 
     /**
-     * Creates new form ingresoAlumno
+     * Creates new form ingresoAlumno.
+     * @param cu Curso al cual se le añadira un Alumno
+     * @param m Modelo a actualizar
      */
     public ingresoAlumno(Curso cu, DefaultListModel m) {
         this.course = cu;
@@ -58,10 +60,6 @@ public class ingresoAlumno extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,16 +72,6 @@ public class ingresoAlumno extends javax.swing.JFrame {
         jLabel3.setText("Apellidos");
 
         jLabel4.setText("Apoderado");
-
-        jLabel5.setText("Curso");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("A");
-
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("B");
 
         jButton1.setText("Guardar Y Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,19 +97,9 @@ public class ingresoAlumno extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                        .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addComponent(jTextField4)))
                 .addContainerGap(76, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -145,13 +123,7 @@ public class ingresoAlumno extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(25, 25, 25))
         );
@@ -162,17 +134,17 @@ public class ingresoAlumno extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         addMate();
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    /**
+     * Metodo que Agrega un alumno al Array Curso, leyendo y comprobando los 
+     * datos ingresadosa la ventana, Tambien genera su asistencia(fillAsis) y notas(fillNotas).
+     */
     public void addMate() {
         if (check()) {
             this.nombre = jTextField2.getText();
             this.Apellidos = jTextField3.getText();
             this.Apoderado = jTextField4.getText();
-            this.curso = jComboBox1.getSelectedIndex();
-            if (jRadioButton1.isSelected()) {
-                this.letra = "A";
-            } else if (jRadioButton2.isSelected()) {
-                this.letra = "B";
-            }
+
             fillNotas();
             fillAsis();
             temp = new Alumno(Apoderado, Apellidos +" " +nombre );
@@ -189,19 +161,18 @@ public class ingresoAlumno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 
+    /**
+    * Metodo que rellena el array Asistencia del Nuevo Alumno.
+    */
     private void fillAsis() {
         boolean[][] asistencia = new boolean[4][5];
         Asistencia = new ArrayList<Asistencia>();
@@ -219,23 +190,30 @@ public class ingresoAlumno extends javax.swing.JFrame {
         }
     }
 
+    /**
+    * Metodo que rellena las notas del nuevo alumno ingresado.
+    */
     private void fillNotas() {
         cali = new ArrayList<>();
         String[] asig = {"Lenguaje", "Matematicas", "Historia", "Ingles", "Educacion Fisica"};
         Notas not = null;
-        Double[] notas = new Double[5];
+        Double notas = null;
         for (int h = 0; h < 5; h++) {
             not = new Notas(asig[h]);
             for (int k = 0; k < 5; k++) {
-                notas[k] = 1.0 + (Double) Math.floor(Math.random() * 6);
+                notas = 1.0 + (Double) Math.floor(Math.random() * 6);
+                not.addNota(notas);
             }
-            not.setNotas(notas);
+            
             cali.add(not);
         }
     }
 
+    /**
+    * Metodo el cual verifica que los datos no sean nulos.
+    */
     private boolean check() {
-        if (!"".equals(jTextField2.toString()) || !"".equals(jTextField3.toString()) || !"".equals(jTextField4.toString()) || jRadioButton1.isSelected() == jRadioButton2.isSelected()) {
+        if (!"".equals(jTextField2.toString()) || !"".equals(jTextField3.toString()) || !"".equals(jTextField4.toString())) {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese todos los datos por favor");
