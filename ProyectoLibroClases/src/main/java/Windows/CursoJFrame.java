@@ -13,6 +13,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
+ * Ventana la cual Muestra los datos del Alumno, permitiendo ver sus notas,
+ * anotaciones y apoderado.
  *
  * @author Okumura
  */
@@ -27,12 +29,18 @@ public class CursoJFrame extends javax.swing.JFrame {
     private ingresoNotas notas;
     private DefaultListModel<String> model = new DefaultListModel<String>();
     private boolean check = false;
-    
+
+    /**
+     * Constructor modificado de la Clase CursoJFrame
+     *
+     * @param c recibe un objeto de tipo Curso
+     * @param name Recibe el nombre que se utilizara en la barra superior
+     */
     public CursoJFrame(Curso c, String name) {
         this.cursoName = name;
         this.curso = c;
         initComponents();
-        for(Alumno s: curso.getlistaAlumnos()){
+        for (Alumno s : curso.getlistaAlumnos()) {
             model.addElement(s.getNombre());
         }
     }
@@ -61,6 +69,10 @@ public class CursoJFrame extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(cursoName);
@@ -137,10 +149,38 @@ public class CursoJFrame extends javax.swing.JFrame {
 
         jLabel5.setText("  ");
 
-        jButton8.setText("VER ASISTENCIA");
+        jButton8.setText("VER ASISTENCIA GENERAL");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Editar Apoderado");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Añadir Alumno");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("GUARDAR");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Eliminar Alumno");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
             }
         });
 
@@ -150,9 +190,12 @@ public class CursoJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,9 +223,16 @@ public class CursoJFrame extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jButton4)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jButton5)))))
+                                                .addComponent(jButton5))))
+                                    .addComponent(jButton9))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,98 +262,129 @@ public class CursoJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton9)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12))
+                .addGap(25, 25, 25))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(checkState()){
-            notas = new ingresoNotas(temp.getNotas().get(1),"Matematicas");
-            notas.setVisible(true);
-        }
+        cambioToNotas(1, "Matematicas");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(checkState()){
-            notas = new ingresoNotas(temp.getNotas().get(2),"Historia");
-            notas.setVisible(true);
-        }
+        cambioToNotas(2, "Historia");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(checkState()){
-            notas = new ingresoNotas(temp.getNotas().get(3),"Ingles");
-            notas.setVisible(true);
-        }
+        cambioToNotas(3, "Ingles");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if(checkState()){
-            notas = new ingresoNotas(temp.getNotas().get(4),("Educación Fisica"));
-            notas.setVisible(true);
-        }
+        cambioToNotas(4, "Educacion Fisica");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        if(checkState()){
-            if(temp.getAnotaciones().equals("")){
-                JOptionPane.showMessageDialog(null,"No hay anotaciones");
-            } else{
-                JOptionPane.showMessageDialog(null,temp.getAnotaciones());
+        if (checkState()) {
+            if (temp.getAnotaciones().equals("")) {
+                JOptionPane.showMessageDialog(null, "No hay anotaciones");
+            } else {
+                JOptionPane.showMessageDialog(null, temp.getAnotaciones());
             }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        String Value = jList1.getSelectedValue();
-        for(Alumno j : curso.getlistaAlumnos()){
-            if(j.getNombre().equals(Value)){
-                temp = j;
-                check = true;
-                jLabel5.setText(j.getApoderado());
-            }
-        }
+        camboDato();
     }//GEN-LAST:event_jList1ValueChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(checkState()){
-            notas = new ingresoNotas(temp.getNotas().get(0),"Lenguaje");
-            notas.setVisible(true);
-        }
+        cambioToNotas(0, "Lenguaje");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if(checkState()){
+        if (checkState()) {
             AnotacionesJFrame ano = new AnotacionesJFrame(temp);
             ano.setVisible(true);
-            
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if(check){
-            AsistenciaJFrame asist = new AsistenciaJFrame(temp.getAsistencia());
-            asist.setVisible(true);
-        }
+        AsistenciaJFrameB asist = new AsistenciaJFrameB(curso);
+        asist.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    public boolean checkState(){
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        ingresoAlumno temp = new ingresoAlumno(curso, model);
+        temp.setVisible(true);
+
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         if(check){
-        }else{
+            IngresarApoderado();
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        if (check) {
+            deleteAlumno();
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    /**
+     * Metodo que examina que se haya seleccionado un elemento del jList
+     *
+     * @return check
+     */
+    public boolean checkState() {
+        if (check) {
+        } else {
             JOptionPane.showMessageDialog(null, "Primero Seleccione un Alumno");
         }
         return check;
     }
-    
-    public void StateChange(){
+
+    /**
+     * Cambia el valor de un booleano
+     */
+    public void StateChange() {
         check = true;
     }
-    
+
+    /**
+     * Metodo que carga la proxima clase
+     *
+     * @param index indica el lugar exacto del array que se debe leer
+     * @param cur String que indica el curso perteneciente
+     */
+    public void cambioToNotas(int index, String cur) {
+        if (checkState()) {
+            notas = new ingresoNotas(temp.getNotas().get(index), cur, curso.getProfesor().get(index));
+            notas.setVisible(true);
+
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -311,6 +392,7 @@ public class CursoJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -319,4 +401,31 @@ public class CursoJFrame extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * Cambia los datos de la ventana segun el Valor seleccionado de jList
+     */
+    private void camboDato() {
+        String Value = jList1.getSelectedValue();
+        for (Alumno j : curso.getlistaAlumnos()) {
+            if (j.getNombre().equals(Value)) {
+                temp = j;
+                check = true;
+                jLabel5.setText(j.getApoderado());
+            }
+        }
+    }
+
+    private void IngresarApoderado() {
+        String ap = JOptionPane.showInputDialog("Ingrese el Nombre del Apoderado");
+        int d = jList1.getSelectedIndex();
+        curso.getlistaAlumnos().get(d).setApoderado(ap); 
+        jLabel5.setText(ap);
+    }
+
+    private void deleteAlumno() {
+        int d = jList1.getSelectedIndex();
+        model.remove(d);
+        curso.getlistaAlumnos().remove(d);
+    }
 }

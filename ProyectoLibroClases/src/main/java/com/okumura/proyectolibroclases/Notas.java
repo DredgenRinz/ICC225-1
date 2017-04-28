@@ -6,14 +6,19 @@
 package com.okumura.proyectolibroclases;
 
 /**
- *
+ *Clase que hace referencia a las notas de un Alumno con un Vector de 5 elementos
  * @author Okumura
  */
 public class Notas {
+    
     private String Asignatura;
     private Double[] notas = new Double[5];
 
     public Notas(){}
+    /**
+     * Constructor especializado de Asignatura
+     * @param Asignatura Indica que Asignatura representara la clase.
+     */
     public Notas(String Asignatura) {
         this.Asignatura = Asignatura;
     }

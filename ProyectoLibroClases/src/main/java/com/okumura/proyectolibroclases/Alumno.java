@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ *Clase de tipo Alumno, Extendida de Persona que implementa un Comparable para utilizar el metodo sort.
  * @author Okumura
  */
 @XmlAccessorType (XmlAccessType.FIELD)
@@ -26,10 +26,16 @@ public class Alumno extends Persona implements Comparable{
     
     public Alumno(){}
     
+    /**
+     * Constructor de la Clase Alumno
+     * @param apoderado Nombre del Apoderado 
+     * @param nombre Variable que contiene el nombre del alumno
+     */
     public Alumno(String apoderado, String nombre) {
         super(nombre);
         this.apoderado = apoderado;
     }
+    
     public List<Notas> getNotas() {
         return notas;
     }
@@ -62,7 +68,11 @@ public class Alumno extends Persona implements Comparable{
     public void setApoderado(String apoderado) {
         this.apoderado = apoderado;
     }
-    
+    /**
+     * Clase que compara 2 objetos de tipo Alumno, metodo sobre escrito del Collections.sort
+     * @param o Object a comparar
+     * @return valor para comparar y ordenar array
+     */
     @Override
     public int compareTo(Object o) {
         Alumno per = (Alumno) o;

@@ -15,7 +15,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * Clase que modela la asistencia a clases de un alumno
  * @author Okumura
  */
 public class AsistenciaJFrame extends javax.swing.JFrame {
@@ -25,6 +25,7 @@ public class AsistenciaJFrame extends javax.swing.JFrame {
     
     /**
      * Creates new form AsistenciaJFrame
+     * @param as Lista de asistencia
      */
     public AsistenciaJFrame(List<Asistencia> as) {
         initComponents();
@@ -352,79 +353,79 @@ public class AsistenciaJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][1]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][1]= jCheckBox2.isSelected();
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][2]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][2]= jCheckBox3.isSelected();
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][3]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][3]= jCheckBox4.isSelected();
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][4]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][4]= jCheckBox5.isSelected();
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][0]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][0]= jCheckBox6.isSelected();
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
     private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][1]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][1]= jCheckBox7.isSelected();
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][2]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][2]= jCheckBox8.isSelected();
     }//GEN-LAST:event_jCheckBox8ActionPerformed
 
     private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][3]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][3]= jCheckBox9.isSelected();
     }//GEN-LAST:event_jCheckBox9ActionPerformed
 
     private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][4]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[1][4]= jCheckBox10.isSelected();
     }//GEN-LAST:event_jCheckBox10ActionPerformed
 
     private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][0]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][0]= jCheckBox11.isSelected();
     }//GEN-LAST:event_jCheckBox11ActionPerformed
 
     private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][1]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][1]= jCheckBox12.isSelected();
     }//GEN-LAST:event_jCheckBox12ActionPerformed
 
     private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][2]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][2]= jCheckBox13.isSelected();
     }//GEN-LAST:event_jCheckBox13ActionPerformed
 
     private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][3]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][3]= jCheckBox14.isSelected();
     }//GEN-LAST:event_jCheckBox14ActionPerformed
 
     private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][4]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[2][4]= jCheckBox15.isSelected();
     }//GEN-LAST:event_jCheckBox15ActionPerformed
 
     private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][0]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][0]= jCheckBox16.isSelected();
     }//GEN-LAST:event_jCheckBox16ActionPerformed
 
     private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][1]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][1]= jCheckBox17.isSelected();
     }//GEN-LAST:event_jCheckBox17ActionPerformed
 
     private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][2]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][2]= jCheckBox18.isSelected();
     }//GEN-LAST:event_jCheckBox18ActionPerformed
 
     private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][3]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][3]= jCheckBox19.isSelected();
     }//GEN-LAST:event_jCheckBox19ActionPerformed
 
     private void jCheckBox20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox20ActionPerformed
-        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][4]= jCheckBox1.isSelected();
+        asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[3][4]= jCheckBox20.isSelected();
     }//GEN-LAST:event_jCheckBox20ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -438,7 +439,6 @@ public class AsistenciaJFrame extends javax.swing.JFrame {
 
     
     public void showData(){
-        System.out.println(jComboBox1.getSelectedIndex());
         jCheckBox1.setSelected(asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][0]);
         jCheckBox2.setSelected(asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][1]);
         jCheckBox3.setSelected(asist.get(jComboBox1.getSelectedIndex()).getAsistencia()[0][2]);

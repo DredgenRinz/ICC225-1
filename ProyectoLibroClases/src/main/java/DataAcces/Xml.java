@@ -16,8 +16,9 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 /**
- *
+ **Conversion de un XML a un Objeto de clase Colegio
  * @author Okumura
+ * 
  */
 public class Xml {
     
@@ -34,6 +35,10 @@ public class Xml {
         return xml;
     }
 
+    /** 
+    **Clase que convierte un Objeto en XML
+    * @param colegio objeto a convertir en xml
+    */
     public void setXmlData(Colegio colegio){
         try{
         File file = new File("Colegio.xml");

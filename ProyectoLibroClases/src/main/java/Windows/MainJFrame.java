@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Windows;
+
 import DataAcces.XMLtoJSON;
 import DataAcces.Xml;
 import com.okumura.proyectolibroclases.Alumno;
@@ -14,15 +15,20 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.transform.TransformerException;
+
 /**
+ * Ventana Principal del Programa
  *
  * @author Okumura
  */
 public class MainJFrame extends javax.swing.JFrame {
+
     private Xml getData;
+    private XMLtoJSON xj;
     private static Colegio yolo;
+
     /**
-     * Creates new form MainJFrame
+     * Creates new form MainJFrame, load data from xml
      */
     public MainJFrame() {
         initComponents();
@@ -190,20 +196,60 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setText("Cursos:");
 
         jButton17.setText("1ros");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jButton18.setText("2dos");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setText("3ros");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
 
         jButton20.setText("4tos");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         jButton21.setText("5tos");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
 
         jButton22.setText("6tos");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
 
         jButton23.setText("7mos");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         jButton24.setText("8vos");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Planificacion");
 
@@ -353,121 +399,146 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cambioVentana(1,"A");
+        cambioVentana(1, "A");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        cambioVentana(5,"A");
+        cambioVentana(5, "A");
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        cambioVentana(1,"B");
+        cambioVentana(1, "B");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        cambioVentana(2,"A");
+        cambioVentana(2, "A");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        cambioVentana(2,"B");
+        cambioVentana(2, "B");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        cambioVentana(3,"A");
+        cambioVentana(3, "A");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        cambioVentana(3,"B");
+        cambioVentana(3, "B");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        cambioVentana(4,"A");
+        cambioVentana(4, "A");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        cambioVentana(4,"B");
+        cambioVentana(4, "B");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        cambioVentana(5,"B");
+        cambioVentana(5, "B");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        cambioVentana(6,"A");
+        cambioVentana(6, "A");
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        cambioVentana(6,"B");
+        cambioVentana(6, "B");
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        cambioVentana(7,"A");
+        cambioVentana(7, "A");
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        cambioVentana(7,"B");
+        cambioVentana(7, "B");
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        cambioVentana(8,"A");
+        cambioVentana(8, "A");
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        cambioVentana(8,"B");
+        cambioVentana(8, "B");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        getData.setXmlData(yolo);
-        System.exit(0);
+        saveQuit();
     }//GEN-LAST:event_jButton25ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        PlanFrame("1ros", 0);
+    }//GEN-LAST:event_jButton17ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainJFrame().setVisible(true);
-            }
-        });
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        PlanFrame("2dos", 5);
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        PlanFrame("3ros", 10);
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        PlanFrame("4tos", 15);
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        PlanFrame("5tos", 20);
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        PlanFrame("6tos", 25);
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        PlanFrame("7mos", 30);
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        PlanFrame("8vos", 35);
+    }//GEN-LAST:event_jButton24ActionPerformed
+    /**
+     *Metodo que invoca la planificacion segun asignatura.
+     * @param curso El curso al que pertenece
+     * @param index La posicion donde se extraera la informacion
+     */
+    private void PlanFrame(String curso, int index) {
+        PlanificacionJFrame pla = new PlanificacionJFrame(curso, index, yolo.getPlan());
+        pla.setVisible(true);
     }
-    
-    private void cambioVentana(int num,String id){
-        for(Curso j : yolo.getCursos()){
-            if(j.getNumeroCurso()==num && j.getLetraCurso().equals(id)){
-                CursoJFrame curso = new CursoJFrame(j,num+" año "+id);
+
+    /**
+     * Metodo que Cambia de la ventana Principal a la de Curso
+     * @param num
+     * @param id 
+     */
+    private void cambioVentana(int num, String id) {
+        for (Curso j : yolo.getCursos()) {
+            if (j.getNumeroCurso() == num && j.getLetraCurso().equals(id)) {
+                CursoJFrame curso = new CursoJFrame(j, num + " año " + id);
                 curso.setVisible(true);
             }
         }
-        
-        
+
+    }
+
+    /**
+     * Clase que guarda los datos usados en un XML y posterior en un JSON
+     */
+    public void saveQuit() {
+        getData.setXmlData(yolo);
+        try {
+            xj.XMLtoGSON(yolo);
+        } catch (IOException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

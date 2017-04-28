@@ -28,145 +28,156 @@ import javax.xml.bind.Unmarshaller;
  * @author Okumura
  */
 public class poblamientoDatos {
-    public static void main(String [] args) throws FileNotFoundException{
+
+    public static void main(String[] args) throws FileNotFoundException {
         Colegio colegio = new Colegio();
         colegio.setCursos(new ArrayList<Curso>());
-        String [] nombresM = readData("listaM.txt",50);
-        String [] nombresH = readData("listaH.txt",50);
-        String [] apellidos = readData("apellidos.txt",100);
-        System.out.println(nombresM.length+" "+nombresH.length+" "+apellidos.length);
-        
+        String[] nombresM = readData("listaM.txt", 50);
+        String[] nombresH = readData("listaH.txt", 50);
+        String[] apellidos = readData("apellidos.txt", 100);
+        Profesor pro;
         int curso = 1;
         int letra = 0;
         String letraCurso = "A";
         Curso temp = null;
-        Double [] notas = new Double [5];
-        boolean [][] asistencia = new boolean[4][5];
+        Double[] notas = new Double[5];
+        boolean[][] asistencia = new boolean[4][5];
+        Planificacion plan = null;
+        String[] asig = {"Lenguaje", "Matematicas", "Historia", "Ingles", "Educacion Fisica"};
+        String [] Obj = {"Su objetivo es que los alumnos adquieran las habilidades comunicativas que son indispensables para desenvolverse en el mundo y para integrarse en una sociedad democrática de manera activa e informada.","El propósito de esta asignatura es enriquecer la comprensión de la realidad, facilitar la selección de estrategias para resolver problemas y contribuir al desarrollo del pensamiento crítico y autónomo en todos los estudiantes","Esta asignatura permite al estudiante alcanzar una mejor comprensión de la sociedad y su rol en ella. Está conformada por disciplinas -Historia, Geografía, Economía, Demografía, Sociología y Ciencia Política- que estudian al ser humano como individuo y como miembro de la sociedad desde distintas perspectivas.","El propósito de esta asignatura es que los alumnos aprendan el idioma y lo utilicen como una herramienta para desenvolverse en situaciones comunicativas simples de variada índole","La práctica regular de actividad física desarrollará habilidades motrices y actitudes proclives al juego limpio, el liderazgo y el autocuidado. Dándoles la posibilidad de adquirir un estilo de vida activo y saludable, asociado a múltiples beneficios individuales y sociales"};
         
-        for(int i = 0; i<16;i++){
-            if(letra == 0){
+        for (int i = 0; i < 8; i++) {
+            for(int j = 0;j<5;j++){
+                plan = new Planificacion(asig[j],i+1);
+                plan.setObjetivo(Obj[j]);
+                colegio.getPlan().add(plan);
+            }
+            
+        }
+        for (int i = 0; i < 16; i++) {
+            if (letra == 0) {
                 letraCurso = "A";
-                temp = new Curso(curso,letraCurso);
+                temp = new Curso(curso, letraCurso);
                 letra++;
-            }else {
+            } else {
                 letraCurso = "B";
                 letra--;
-                temp = new Curso(curso,letraCurso);
+                temp = new Curso(curso, letraCurso);
                 curso++;
             }
             
             temp.setlistaAlumnos(new ArrayList<Alumno>());
-            
-            Random rnd=new Random();
-            Random ran=new Random();
+
+            Random rnd = new Random();
+            Random ran = new Random();
             int max = 99;
             int n = 50;
             int sex = 2;
             String nombre;
             String nombreAp;
-            for(int j = 0; j<30;j++){
-                if(rnd.nextInt(sex)==0){
-                    nombre = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresH[(int) Math.floor(Math.random() * 50)];
-                }else{
-                    nombre = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresM[(int) Math.floor(Math.random() * 50)];
+            for(int p = 0;p<5;p++){
+                if (rnd.nextInt(sex) == 0) {
+                    nombre = apellidos[rnd.nextInt(max)] + " " + apellidos[rnd.nextInt(max)] + " " + nombresH[(int) Math.floor(Math.random() * 50)];
+                } else {
+                    nombre = apellidos[rnd.nextInt(max)] + " " + apellidos[rnd.nextInt(max)] + " " + nombresM[(int) Math.floor(Math.random() * 50)];
                 }
-                if(rnd.nextInt(sex)==0){
-                    nombreAp = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresH[(int) Math.floor(Math.random() * 50)];
-                }else{
-                    nombreAp = apellidos[rnd.nextInt(max)] +" "+ apellidos[rnd.nextInt(max)] +" " +nombresM[(int) Math.floor(Math.random() * 50)];
-                } 
+                pro = new Profesor(nombre,asig[p]);
+                temp.getProfesor().add(pro);
+            }            
+            for (int j = 0; j < 30; j++) {
+                if (rnd.nextInt(sex) == 0) {
+                    nombre = apellidos[rnd.nextInt(max)] + " " + apellidos[rnd.nextInt(max)] + " " + nombresH[(int) Math.floor(Math.random() * 50)];
+                } else {
+                    nombre = apellidos[rnd.nextInt(max)] + " " + apellidos[rnd.nextInt(max)] + " " + nombresM[(int) Math.floor(Math.random() * 50)];
+                }
+                if (rnd.nextInt(sex) == 0) {
+                    nombreAp = apellidos[rnd.nextInt(max)] + " " + apellidos[rnd.nextInt(max)] + " " + nombresH[(int) Math.floor(Math.random() * 50)];
+                } else {
+                    nombreAp = apellidos[rnd.nextInt(max)] + " " + apellidos[rnd.nextInt(max)] + " " + nombresM[(int) Math.floor(Math.random() * 50)];
+                }
                 Alumno temp3 = new Alumno(nombreAp, nombre);
                 temp3.setNotas(new ArrayList<Notas>());
-                String [] asig = {"Lenguaje","Matematicas","Historia","Ingles","Educacion Fisica"};
                 Notas not = null;
-                for(int h = 0; h<5;h++){
+                for (int h = 0; h < 5; h++) {
                     not = new Notas(asig[h]);
-                    for(int k = 0;k<5;k++){
+                    for (int k = 0; k < 5; k++) {
                         notas[k] = 1.0 + (Double) Math.floor(Math.random() * 6);
                     }
                     not.setNotas(notas);
                     temp3.getNotas().add(not);
                 }
-                
+
                 temp3.setAsistencia(new ArrayList<Asistencia>());
-                String [] mes = {"Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+                String[] mes = {"Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
                 Asistencia asist = null;
-                for(int g=0;g<10;g++){
+                for (int g = 0; g < 10; g++) {
                     asist = new Asistencia(mes[g]);
-                    for(int h = 0; h<4;h++){
-                        for(int k = 0;k<5;k++){
+                    for (int h = 0; h < 4; h++) {
+                        for (int k = 0; k < 5; k++) {
                             asistencia[h][k] = Math.random() < 0.5 ? true : false;
                         }
-                    } 
+                    }
                     asist.setAsistencia(asistencia);
                     temp3.getAsistencia().add(asist);
                 }
-                
-               
-                
+
                 temp.getlistaAlumnos().add(temp3);
-                	   
+
             }
             Collections.sort(temp.getlistaAlumnos());
             colegio.getCursos().add(temp);
             //temp.setlistaAlumnos();
-            
 
         }
-        
-            String arch = "colegio.xml";
-            try {
 
-		File file = new File(arch);
-		JAXBContext jaxbContext = JAXBContext.newInstance(Alumno.class,Profesor.class,Curso.class,Colegio.class);
-		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+        String arch = "colegio.xml";
+        try {
 
-		// output pretty printed
-		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		jaxbMarshaller.marshal(colegio, file);
-                
-                Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                Colegio xml = (Colegio) jaxbUnmarshaller.unmarshal(file);
-                System.out.println(xml.getCursos().size());
+            File file = new File(arch);
+            JAXBContext jaxbContext = JAXBContext.newInstance(Alumno.class, Profesor.class, Curso.class, Colegio.class,Planificacion.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
-	      } catch (JAXBException e) {
-		e.printStackTrace();
-	      }        
+            // output pretty printed
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            jaxbMarshaller.marshal(colegio, file);
+
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            Colegio xml = (Colegio) jaxbUnmarshaller.unmarshal(file);
+            System.out.println(xml.getCursos().size());
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
 
     }
 
-  
-    
-    
-    
-    
-    
-    public static String [] readData(String file,int n){
+    public static String[] readData(String file, int n) {
         File fichero = new File(file);
-		Scanner s = null;
-                String [] datos = new String [n];
-                int cont = 0;
+        Scanner s = null;
+        String[] datos = new String[n];
+        int cont = 0;
 
-		try {
-			s = new Scanner(fichero);
-                        
-			while (s.hasNextLine()) {
-				String linea = s.nextLine();
-                                datos[cont] = (linea);
-                                cont++;
-			}
+        try {
+            s = new Scanner(fichero);
 
-		} catch (Exception ex) {
-			System.out.println("Mensaje: " + ex.getMessage());
-		} finally {
-			// Cerramos el fichero tanto si la lectura ha sido correcta o no
-			try {
-				if (s != null)
-					s.close();
-			} catch (Exception ex2) {
-				System.out.println("Mensaje 2: " + ex2.getMessage());
-			}
-		}
+            while (s.hasNextLine()) {
+                String linea = s.nextLine();
+                datos[cont] = (linea);
+                cont++;
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Mensaje: " + ex.getMessage());
+        } finally {
+            // Cerramos el fichero tanto si la lectura ha sido correcta o no
+            try {
+                if (s != null) {
+                    s.close();
+                }
+            } catch (Exception ex2) {
+                System.out.println("Mensaje 2: " + ex2.getMessage());
+            }
+        }
         return datos.clone();
     }
 }

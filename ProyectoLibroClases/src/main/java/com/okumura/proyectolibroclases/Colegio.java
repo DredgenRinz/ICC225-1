@@ -13,12 +13,23 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ *Clase que representa un colegio X
  * @author Okumura
  */
 @XmlRootElement(name = "Colegio")
 @XmlAccessorType (XmlAccessType.FIELD)
 public class Colegio {
+    @XmlElement(name = "Planificacion")
+    private List <Planificacion> plan = new ArrayList<>();
+    
+    
+    public List<Planificacion> getPlan() {
+        return plan;
+    }
+
+    public void setPlan(List<Planificacion> plan) {
+        this.plan = plan;
+    }
     @XmlElement(name = "Cursos")
     private List <Curso> cursos = new ArrayList<>();
 

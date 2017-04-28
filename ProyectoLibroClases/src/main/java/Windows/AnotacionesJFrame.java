@@ -9,7 +9,7 @@ import com.okumura.proyectolibroclases.Alumno;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Ventana que recibe y guarda una Anotacion, que puede ser Positiva o Negativa
  * @author Okumura
  */
 public class AnotacionesJFrame extends javax.swing.JFrame {
@@ -17,7 +17,8 @@ public class AnotacionesJFrame extends javax.swing.JFrame {
     private boolean checkState = false;
     private Alumno anotaciones = null;
     /**
-     * Creates new form Anotaciones
+     * Creates new form Anotaciones, and receive a Alumno Object
+     * @param anot Alumno al cual se agregara o revisara las anotaciones.
      */
     public AnotacionesJFrame(Alumno anot) {
         initComponents();
@@ -100,6 +101,7 @@ public class AnotacionesJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -113,8 +115,12 @@ public class AnotacionesJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Clase que chequea el estado de la introduccion de datos
+     * @return true si no hay errores, false si los hay.
+     */
     public boolean checkState(){
-        if(jRadioButton1.isSelected() || jRadioButton2.isSelected()){
+        if(jRadioButton1.isSelected() || jRadioButton2.isSelected() && jTextField1.getText()!=""){
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Por favor seleccione el tipo de anotacion ingresada.");
@@ -122,6 +128,9 @@ public class AnotacionesJFrame extends javax.swing.JFrame {
         return false;
     }
     
+    /**
+     * Metodo que asigna los valores de la ventada al Objecto
+     */
     public void saveData(){
         String anot = anotaciones.getAnotaciones();
         if(jRadioButton1.isSelected()){

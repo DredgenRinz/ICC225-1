@@ -14,9 +14,26 @@ import javax.xml.bind.annotation.XmlAccessorType;
  */
 @XmlAccessorType (XmlAccessType.FIELD)
 public class Profesor extends Persona{
+    private String Asignatura;
     
-    public Profesor(String nombre) {
+    public Profesor(){}
+    
+    /**
+     * Clase que representa a un Profesor
+     * @param nombre Indica el nombre del Profesor.
+     * @param Asignatura Indica la Asignatura que imparte el profesor.
+     */
+    public Profesor(String nombre, String Asignatura) {
         super(nombre);
+        this.Asignatura = Asignatura;
+    }
+
+    public String getAsignatura() {
+        return Asignatura;
+    }
+
+    public void setAsignatura(String Asignatura) {
+        this.Asignatura = Asignatura;
     }
     
 }

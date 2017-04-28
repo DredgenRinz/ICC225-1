@@ -6,23 +6,30 @@
 package Windows;
 
 import com.okumura.proyectolibroclases.Notas;
+import com.okumura.proyectolibroclases.Profesor;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Clase Notas
  * @author Okumura
  */
 public class ingresoNotas extends javax.swing.JFrame {
     
     private Notas notas;
     private String ramo;
+    private Profesor profe;
+    
     /**
-     * Creates new form ingresoNotas
+     * Creates new form ingresoNotas, constructor specialyzed
+     * @param temp Clase notas
+     * @param ramo Nombre del ramo
+     * @param profe Profesor a cargo del ramo
      */
-    public ingresoNotas(Notas temp,String ramo) {
+    public ingresoNotas(Notas temp,String ramo,Profesor profe) {
         initComponents();
         this.notas = temp;
         this.ramo = ramo;
+        this.profe = profe;
         showData();
     }
 
@@ -43,6 +50,8 @@ public class ingresoNotas extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -59,6 +68,10 @@ public class ingresoNotas extends javax.swing.JFrame {
 
         jLabel2.setText("Notas");
 
+        jLabel3.setText("Profesor:");
+
+        jLabel4.setText("jLabel4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,9 +81,6 @@ public class ingresoNotas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +94,15 @@ public class ingresoNotas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,7 +110,11 @@ public class ingresoNotas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(17, 17, 17)
                 .addComponent(jLabel2)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -101,19 +123,22 @@ public class ingresoNotas extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(30, 30, 30))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
         saveData();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Actualiza la informacion de la ventana
+     */
     public void showData(){
         jTextField1.setText(notas.getNotas()[0].toString());
         jTextField2.setText(notas.getNotas()[1].toString());
@@ -121,7 +146,12 @@ public class ingresoNotas extends javax.swing.JFrame {
         jTextField4.setText(notas.getNotas()[3].toString());
         jTextField5.setText(notas.getNotas()[4].toString());
         jLabel1.setText(ramo);
+        jLabel4.setText(profe.getNombre());
     }
+    
+    /**
+     * Guarda los cambios hechos en la ventana
+     */
     public void saveData(){
         notas.getNotas()[0]=Double.parseDouble(jTextField1.getText());
         notas.getNotas()[1]=Double.parseDouble(jTextField2.getText());
@@ -130,16 +160,23 @@ public class ingresoNotas extends javax.swing.JFrame {
         notas.getNotas()[4]=Double.parseDouble(jTextField5.getText());
         close();
     }
+    
+    /**
+     * Metodo que evalua si las notas ingresadas son validas
+     * @return  false si estan mal, true si no hay problema
+     */
     public boolean checkNum(){
         for(int i = 0; i<notas.getNotas().length ;i++){
             if(notas.getNotas()[i]<1.0 || notas.getNotas()[i]>7.0){
                 JOptionPane.showMessageDialog(null, "Ingrese notas validas entre 1.0 y 7.0");
                 return false;
             }
-            System.out.println(notas.getNotas()[i]);
         }
         return true;
     }
+    /**
+     * Metodo que termina la ejecucion de la ventana
+     */
     public void close(){
         if(checkNum()){
             this.dispose();
@@ -151,6 +188,8 @@ public class ingresoNotas extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

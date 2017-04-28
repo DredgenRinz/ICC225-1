@@ -17,6 +17,10 @@ import javax.xml.bind.annotation.XmlAttribute;
 public class Persona {
     private String nombre;
 
+    /**
+     * Constructor de Persona
+     * @param nombre Indica el Nombre de Persona
+     */
     public Persona(String nombre) {
         this.nombre = nombre;
     }

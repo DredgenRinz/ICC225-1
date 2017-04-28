@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ *Clase que representa un Curso de 30 Alumnos
  * @author Okumura
  */
 @XmlRootElement(name = "Curso")
@@ -22,24 +22,32 @@ public class Curso {
     
     private int numeroCurso;
     private String letraCurso;
-    private Profesor profesor;
+    @XmlElement(name = "Profesor_Asignatura")
+    private List<Profesor> profesor = new ArrayList<>();
    
     @XmlElement(name = "Alumno")
     private List<Alumno> listaAlumnos = null;
-
+    
+    public Curso() {
+    }
+    /**
+     * Constructor especializado de alumno.
+     * @param numeroCurso refiere al Numero del Curso.
+     * @param letraCurso Indica la Letra del Curso.
+     */
     public Curso(int numeroCurso, String letraCurso) {
         this.numeroCurso = numeroCurso;
         this.letraCurso = letraCurso;
     }
-    
-    public Profesor getProfesor() {
+
+    public List<Profesor> getProfesor() {
         return profesor;
     }
 
-    public void setProfesor(Profesor profesor) {
+    public void setProfesor(List<Profesor> profesor) {
         this.profesor = profesor;
     }
-
+    
     public List<Alumno> getlistaAlumnos() {
         return listaAlumnos;
     }
@@ -62,10 +70,6 @@ public class Curso {
 
     public void setLetraCurso(String letraCurso) {
         this.letraCurso = letraCurso;
-    }
-
-    public Curso() {
-    }
-    
+    }    
     
 }
