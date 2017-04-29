@@ -101,10 +101,10 @@ public class poblamientoDatos {
                     nombreAp = apellidos[rnd.nextInt(max)] + " " + apellidos[rnd.nextInt(max)] + " " + nombresM[(int) Math.floor(Math.random() * 50)];
                 }
                 Alumno temp3 = new Alumno(nombreAp, nombre);
-                temp3.setNotas(new ArrayList<Notas>());
-                Notas not = null;
+                temp3.setNotas(new ArrayList<Nota>());
+                Nota not = null;
                 for (int h = 0; h < 5; h++) {
-                    not = new Notas(asig[h]);
+                    not = new Nota(asig[h]);
                     for (int k = 0; k < 5; k++) {
                         notas = 1.0 + (Double) Math.floor(Math.random() * 6);
                         not.addNota(notas);

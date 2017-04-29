@@ -5,6 +5,8 @@
  */
 package com.okumura.proyectolibroclases;
 
+import javax.xml.bind.annotation.XmlElement;
+
 /**
  * Clase que representa la Asistencia de un Alumno
  *

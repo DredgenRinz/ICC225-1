@@ -21,7 +21,7 @@ public class Alumno extends Persona implements Comparable{
     
     private String anotaciones = "";
     private List<Asistencia> asistencia = null;
-    private List<Notas> notas = null;
+    private List<Nota> calificaciones = null;
     private String apoderado;
     
     /**
@@ -40,19 +40,19 @@ public class Alumno extends Persona implements Comparable{
     }
     
     /**
-     *Getter del Array Notas.
-     * @return Lista de Notas.
+     *Getter del Array Nota.
+     * @return Lista de Nota.
      */
-    public List<Notas> getNotas() {
-        return notas;
+    public List<Nota> getNotas() {
+        return calificaciones;
     }
 
     /**
-     * Setter del Array Notas.
-     * @param notas Array de Notas
+     * Setter del Array Nota.
+     * @param notas Array de Nota
      */
-    public void setNotas(List<Notas> notas) {
-        this.notas = notas;
+    public void setNotas(List<Nota> notas) {
+        this.calificaciones = notas;
     }
 
     /**

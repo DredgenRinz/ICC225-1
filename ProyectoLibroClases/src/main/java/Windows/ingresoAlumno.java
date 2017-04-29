@@ -9,7 +9,7 @@ import com.okumura.proyectolibroclases.Alumno;
 import com.okumura.proyectolibroclases.Asistencia;
 import com.okumura.proyectolibroclases.Colegio;
 import com.okumura.proyectolibroclases.Curso;
-import com.okumura.proyectolibroclases.Notas;
+import com.okumura.proyectolibroclases.Nota;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -27,7 +27,7 @@ public class ingresoAlumno extends javax.swing.JFrame {
     private int curso;
     private String letra;
     private List<Asistencia> Asistencia = null;
-    private List<Notas> cali = null;
+    private List<Nota> cali = null;
     private Alumno temp;
     private Curso course;
     private DefaultListModel model;
@@ -62,7 +62,7 @@ public class ingresoAlumno extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Ingreso Alumno");
@@ -196,10 +196,10 @@ public class ingresoAlumno extends javax.swing.JFrame {
     private void fillNotas() {
         cali = new ArrayList<>();
         String[] asig = {"Lenguaje", "Matematicas", "Historia", "Ingles", "Educacion Fisica"};
-        Notas not = null;
+        Nota not = null;
         Double notas = null;
         for (int h = 0; h < 5; h++) {
-            not = new Notas(asig[h]);
+            not = new Nota(asig[h]);
             for (int k = 0; k < 5; k++) {
                 notas = 1.0 + (Double) Math.floor(Math.random() * 6);
                 not.addNota(notas);

@@ -8,7 +8,7 @@ package Windows;
 import com.okumura.proyectolibroclases.Alumno;
 import com.okumura.proyectolibroclases.Asistencia;
 import com.okumura.proyectolibroclases.Curso;
-import com.okumura.proyectolibroclases.Notas;
+import com.okumura.proyectolibroclases.Nota;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class IngresoNotasB extends JFrame {
      * Creates new form AsistenciaJFrameB
      *
      * @param curso Clase Curso a editar notas
-     * @param index Int que indica el index del ramo en el Array Notas
+     * @param index Int que indica el index del ramo en el Array Nota
      */
     public IngresoNotasB(Curso curso, int index) {
         this.curso = curso;

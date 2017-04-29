@@ -5,17 +5,17 @@
  */
 package Windows;
 
-import com.okumura.proyectolibroclases.Notas;
+import com.okumura.proyectolibroclases.Nota;
 import com.okumura.proyectolibroclases.Profesor;
 import javax.swing.JOptionPane;
 
 /**
- *Clase Notas
+ *Clase Nota
  * @author Okumura
  */
 public class ingresoNotas extends javax.swing.JFrame {
     
-    private Notas notas;
+    private Nota notas;
     private String ramo;
     private Profesor profe;
     
@@ -25,7 +25,7 @@ public class ingresoNotas extends javax.swing.JFrame {
      * @param ramo Nombre del ramo
      * @param profe Profesor a cargo del ramo
      */
-    public ingresoNotas(Notas temp,String ramo,Profesor profe) {
+    public ingresoNotas(Nota temp,String ramo,Profesor profe) {
         initComponents();
         this.notas = temp;
         this.ramo = ramo;
