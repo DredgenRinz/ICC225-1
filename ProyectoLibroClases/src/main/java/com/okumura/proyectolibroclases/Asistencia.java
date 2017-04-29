@@ -49,7 +49,7 @@ public class Asistencia {
 
     /**
      * Getter del Array Asistencia
-     * @return
+     * @return boolean Array
      */
     public boolean[][] getAsistencia() {
         return asistencia;

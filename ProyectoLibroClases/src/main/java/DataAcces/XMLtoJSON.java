@@ -24,8 +24,8 @@ public class XMLtoJSON {
     /**
      * Aplicacion que convierte un Objeto a Json
      * @param target Objeto de clase colegio 
-     * @throws java.io.IOException@throws javax.xml.transform.TransformerException     
-     * @throws javax.xml.transform.TransformerException     
+     * @throws IOException arroja errores de Input/ouput   
+     * @throws TransformerException error de transformacion     
      */
     public static void XMLtoGSON(Colegio target) throws IOException, TransformerException {
 

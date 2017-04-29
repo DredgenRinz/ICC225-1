@@ -635,7 +635,16 @@ public class MainJFrame extends javax.swing.JFrame {
            destChannel.close();
    }
 } 
-public static void addZip(String zip, String file) throws IOException, ZipException, NullPointerException{
+
+    /**
+     *
+     * @param zip archivo zip
+     * @param file archivo
+     * @throws IOException excepcion de imput/output
+     * @throws ZipException error de compresion
+     * @throws NullPointerException Void error
+     */
+    public static void addZip(String zip, String file) throws IOException, ZipException, NullPointerException{
     ZipFile zipFile = new ZipFile(zip);
     ArrayList filesToAdd = new ArrayList();
     filesToAdd.add(new File(file));

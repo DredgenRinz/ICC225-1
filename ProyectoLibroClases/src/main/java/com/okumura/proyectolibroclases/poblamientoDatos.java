@@ -31,8 +31,8 @@ public class poblamientoDatos {
 
     /**
      * Main de la Clase Poblamiento De Datos XML
-     * @param args
-     * @throws FileNotFoundException
+     * @param args argumentos de inicio
+     * @throws FileNotFoundException archivo no encontrado
      */
     public static void main(String[] args) throws FileNotFoundException {
         Colegio colegio = new Colegio();

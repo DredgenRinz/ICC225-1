@@ -27,9 +27,9 @@ public class BasicXsl {
 
     /**
      *
-     * @param inFilename
-     * @param outFilename
-     * @param xslFilename
+     * @param inFilename Archivo de entrada
+     * @param outFilename Archivo de Salida
+     * @param xslFilename Archivo XSLT
      */
     public static void xsl(String inFilename, String outFilename, String xslFilename) {
         try {
