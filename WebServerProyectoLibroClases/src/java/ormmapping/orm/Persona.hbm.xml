@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Persona" table="persona" lazy="false">
+		<meta attribute="class-description">
+			Tabla que contiene todos los registros transversales de persona
+		</meta>
+		<id name="id" column="id_pk" type="integer" unsaved-value="0">
+			<generator class="increment">
+			</generator>
+		</id>
+		<property name="nombre" column="nombre" type="string" length="100" not-null="false" lazy="false"/>
+		<property name="rut" column="rut" type="string" length="9" not-null="false" lazy="false"/>
+		<one-to-one name="estudiante" class="orm.Estudiante" cascade="save-update,lock" property-ref="persona_id_fk" lazy="no-proxy" access="field"/>
+		<one-to-one name="apoderado" class="orm.Apoderado" cascade="save-update,lock" property-ref="persona_id_fk" lazy="no-proxy" access="field"/>
+		<one-to-one name="directivo" class="orm.Directivo" cascade="save-update,lock" property-ref="persona_id_fk" lazy="no-proxy" access="field"/>
+		<one-to-one name="profesor" class="orm.Profesor" cascade="save-update,lock" property-ref="persona_id_fk" lazy="no-proxy" access="field"/>
+	</class>
+</hibernate-mapping>

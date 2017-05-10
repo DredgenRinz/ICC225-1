@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Model quotesql="1" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
+  <Entity name="estudiante" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="persona_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>persona.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="apoderado_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>apoderado.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="persona" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>increment</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <Comment>Clave primaria de Persona</Comment>
+      <UserTypes/>
+    </Column>
+    <Column name="nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>100</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="rut">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>9</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Comment>Tabla que contiene todos los registros transversales de persona</Comment>
+  </Entity>
+  <Entity name="profesor" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="persona_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>persona.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="apoderado" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="persona_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>persona.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="directivo" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="persona_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>persona.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="institucion_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>institucion.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="curso" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="institucion_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>institucion.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="grado">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>1</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="letra">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>1</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="asignatura" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="curso_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>curso.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="profesorid_pk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>profesor.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="objetivos">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="actividad" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="asignatura_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>asignatura.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="informacion">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="nota" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="actividad_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>actividad.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="estudiante_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>estudiante.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="nota">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>6</Type>
+      <Length>2</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="institucion" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>100</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="asistencia" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="estudiante_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>estudiante.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="fecha">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>17</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="asist">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>7</Type>
+      <Length>1</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="anotaciones" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="estudiante_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>estudiante.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="profesor_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>profesor.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="anotacion">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="curso_estudiante" Unlogged="false" PKClustered="0">
+    <Column name="id_pk">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="curso_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>curso.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="estudiante_id_fk">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>estudiante.id_pk</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <ForeignKey name="FKestudiante294860">
+    <ReferenceTable>estudiante</ReferenceTable>
+    <ReferencedTable>persona</ReferencedTable>
+    <Columns>
+      <Column>persona_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKapoderado581200">
+    <ReferenceTable>apoderado</ReferenceTable>
+    <ReferencedTable>persona</ReferencedTable>
+    <Columns>
+      <Column>persona_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKdirectivo193713">
+    <ReferenceTable>directivo</ReferenceTable>
+    <ReferencedTable>persona</ReferencedTable>
+    <Columns>
+      <Column>persona_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKprofesor978823">
+    <ReferenceTable>profesor</ReferenceTable>
+    <ReferencedTable>persona</ReferencedTable>
+    <Columns>
+      <Column>persona_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKasignatura734940">
+    <ReferenceTable>asignatura</ReferenceTable>
+    <ReferencedTable>curso</ReferencedTable>
+    <Columns>
+      <Column>curso_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKactividad385633">
+    <ReferenceTable>actividad</ReferenceTable>
+    <ReferencedTable>asignatura</ReferencedTable>
+    <Columns>
+      <Column>asignatura_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKcurso940608">
+    <ReferenceTable>curso</ReferenceTable>
+    <ReferencedTable>institucion</ReferencedTable>
+    <Columns>
+      <Column>institucion_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKnota775546">
+    <ReferenceTable>nota</ReferenceTable>
+    <ReferencedTable>actividad</ReferencedTable>
+    <Columns>
+      <Column>actividad_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKnota970842">
+    <ReferenceTable>nota</ReferenceTable>
+    <ReferencedTable>estudiante</ReferencedTable>
+    <Columns>
+      <Column>estudiante_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKcurso_estu933910">
+    <ReferenceTable>curso_estudiante</ReferenceTable>
+    <ReferencedTable>curso</ReferencedTable>
+    <Columns>
+      <Column>curso_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKcurso_estu455039">
+    <ReferenceTable>curso_estudiante</ReferenceTable>
+    <ReferencedTable>estudiante</ReferencedTable>
+    <Columns>
+      <Column>estudiante_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKanotacione140756">
+    <ReferenceTable>anotaciones</ReferenceTable>
+    <ReferencedTable>estudiante</ReferencedTable>
+    <Columns>
+      <Column>estudiante_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKanotacione413440">
+    <ReferenceTable>anotaciones</ReferenceTable>
+    <ReferencedTable>profesor</ReferencedTable>
+    <Columns>
+      <Column>profesor_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKasistencia331039">
+    <ReferenceTable>asistencia</ReferenceTable>
+    <ReferencedTable>estudiante</ReferencedTable>
+    <Columns>
+      <Column>estudiante_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKestudiante816093">
+    <ReferenceTable>estudiante</ReferenceTable>
+    <ReferencedTable>apoderado</ReferencedTable>
+    <Columns>
+      <Column>apoderado_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKasignatura674484">
+    <ReferenceTable>asignatura</ReferenceTable>
+    <ReferencedTable>profesor</ReferencedTable>
+    <Columns>
+      <Column>profesorid_pk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKdirectivo678435">
+    <ReferenceTable>directivo</ReferenceTable>
+    <ReferencedTable>institucion</ReferencedTable>
+    <Columns>
+      <Column>institucion_id_fk</Column>
+    </Columns>
+    <RefColumns>
+      <Column>id_pk</Column>
+    </RefColumns>
+  </ForeignKey>
+</Model>

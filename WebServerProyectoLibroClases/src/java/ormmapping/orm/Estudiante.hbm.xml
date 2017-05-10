@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Estudiante" table="estudiante" lazy="false">
+		<id name="id" column="id_pk" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="persona_id_fk" column="persona_id_fk" class="orm.Persona" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<many-to-one name="apoderado_id_fk" cascade="lock" column="apoderado_id_fk" class="orm.Apoderado" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<set name="ORM_Nota" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="estudiante_id_fk" not-null="true"/>
+			<one-to-many class="orm.Nota"/>
+		</set>
+		<set name="ORM_Curso_estudiante" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="estudiante_id_fk" not-null="true"/>
+			<one-to-many class="orm.Curso_estudiante"/>
+		</set>
+		<set name="ORM_Anotaciones" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="estudiante_id_fk" not-null="true"/>
+			<one-to-many class="orm.Anotaciones"/>
+		</set>
+		<set name="ORM_Asistencia" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="estudiante_id_fk" not-null="true"/>
+			<one-to-many class="orm.Asistencia"/>
+		</set>
+	</class>
+</hibernate-mapping>

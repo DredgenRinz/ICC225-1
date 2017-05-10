@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Nota" table="nota" lazy="false">
+		<id name="id" column="id_pk" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="actividad_id_fk" column="actividad_id_fk" class="orm.Actividad" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<many-to-one name="estudiante_id_fk" cascade="lock" column="estudiante_id_fk" class="orm.Estudiante" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<property name="nota" column="nota" type="double" length="2" not-null="false" lazy="false"/>
+	</class>
+</hibernate-mapping>
